@@ -8,6 +8,7 @@
         <module>SpringCloud-Register</module>
         <module>SpringCloud-Server-System</module>
         <module>SpringCloud-Server-Test</module>
+        <module>SpringCloud-gateway</module>
     </modules>
 
     <parent>
