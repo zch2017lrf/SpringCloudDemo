@@ -22,6 +22,14 @@ zuul:
       path: /auth/**
       serviceId: Kaleldo-Auth
       sensitiveHeaders: "*"
+    system:
+      path: /system/**
+      serviceId: Server-System
+      sensitiveHeaders: "*"
+    test:
+      path: /test/**
+      serviceId: Server-Test
+      sensitiveHeaders: "*"
   retryable: true
   ignored-services: "*"
   ribbon:

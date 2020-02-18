@@ -1,6 +1,6 @@
 spring:
   application:
-    name: hello-spring-cloud-service-admin
+    name: Server-System
 
 server:
   port: 8762
@@ -9,3 +9,9 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+
+security:
+  oauth2:
+    resource:
+      id: ${spring.application.name}
+      user-info-uri: http://localhost:8301/auth/user

@@ -5,6 +5,8 @@ import com.kaleldo.pojo.User;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
+
 @RestController
 public class AdminController {
 
@@ -18,5 +20,14 @@ public class AdminController {
     @GetMapping("/user/{id:\\d+}")
     public String get(@PathVariable Integer id) {
         return new User(id, "kaleldo", "123456").toString();
+    }
+    @GetMapping("info")
+    public String test(){
+        return "febs-server-system";
+    }
+
+    @GetMapping("user")
+    public Principal currentUser(Principal principal) {
+        return principal;
     }
 }
