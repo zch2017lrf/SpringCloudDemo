@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 /**
+ * 异常翻译器
  * 注解为lombok类型注解，用于往当前类中注入org.slf4j.Logger日志打印对象
  */
 @Component

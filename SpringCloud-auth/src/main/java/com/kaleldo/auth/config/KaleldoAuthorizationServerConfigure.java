@@ -3,6 +3,7 @@ package com.kaleldo.auth.config;
 import com.kaleldo.auth.properties.KaleldoAuthProperties;
 import com.kaleldo.auth.properties.KaleldoClientsProperties;
 import com.kaleldo.auth.service.KaleldoUserDetailService;
+import com.kaleldo.auth.translator.KaleldoWebResponseExceptionTranslator;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ import org.springframework.security.oauth2.provider.token.store.redis.RedisToken
  */
 @Configuration
 @EnableAuthorizationServer
-public class KaleldoAuthorizationServerConfigure  extends AuthorizationServerConfigurerAdapter {
+public class KaleldoAuthorizationServerConfigure extends AuthorizationServerConfigurerAdapter {
     @Autowired
     private AuthenticationManager authenticationManager;
     @Autowired
@@ -37,6 +38,8 @@ public class KaleldoAuthorizationServerConfigure  extends AuthorizationServerCon
     private PasswordEncoder passwordEncoder;
     @Autowired
     private KaleldoAuthProperties authProperties;
+    @Autowired
+    private KaleldoWebResponseExceptionTranslator exceptionTranslator;
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
@@ -59,12 +62,14 @@ public class KaleldoAuthorizationServerConfigure  extends AuthorizationServerCon
         }
     }
 
+    @SuppressWarnings("all")
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) {
         endpoints.tokenStore(tokenStore())
                 .userDetailsService(userDetailService)
                 .authenticationManager(authenticationManager)
-                .tokenServices(defaultTokenServices());
+                .tokenServices(defaultTokenServices())
+                .exceptionTranslator(exceptionTranslator);
     }
 
     @Bean
