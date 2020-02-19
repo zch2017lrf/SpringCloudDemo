@@ -1,10 +1,12 @@
 package com.example.demo.service;
 
+import com.example.demo.fallback.HelloServiceFallback;
+import com.kaleldo.pojo.KaleldoServerConstant;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient("Server-System:8762")
+@FeignClient(value = KaleldoServerConstant.KALELDO_SERVER_SYSTEM, contextId = "userServiceClient", fallbackFactory = HelloServiceFallback.class)
 public interface UserService {
     @GetMapping("user/{id}")
     public String get(@PathVariable("id") Integer id);

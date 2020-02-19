@@ -21,3 +21,8 @@ security:
     resource:
       id: ${spring.application.name}
       user-info-uri: http://localhost:8301/auth/user
+feign:
+  hystrix:
+    enabled: true
+hystrix:
+    shareSecurityContext: true
