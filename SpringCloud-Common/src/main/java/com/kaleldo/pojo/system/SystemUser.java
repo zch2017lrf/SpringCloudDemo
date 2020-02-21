@@ -4,8 +4,12 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.kaleldo.annotation.IsMobile;
 import lombok.Data;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -13,7 +17,7 @@ import java.util.Date;
 @TableName("t_user")
 public class SystemUser implements Serializable {
 
-    private static final long serialVersionUID = 7135968014709333137L;
+    private static final long serialVersionUID = -4352868070794165001L;
 
     // 用户状态：有效
     public static final String STATUS_VALID = "1";
@@ -40,6 +44,7 @@ public class SystemUser implements Serializable {
      * 用户名
      */
     @TableField("USERNAME")
+    @Size(min = 4, max = 10, message = "{range}")
     private String username;
 
     /**
@@ -58,18 +63,22 @@ public class SystemUser implements Serializable {
      * 邮箱
      */
     @TableField("EMAIL")
+    @Size(max = 50, message = "{noMoreThan}")
+    @Email(message = "{email}")
     private String email;
 
     /**
      * 联系电话
      */
     @TableField("MOBILE")
+    @IsMobile(message = "{mobile}")
     private String mobile;
 
     /**
      * 状态 0锁定 1有效
      */
     @TableField("STATUS")
+    @NotBlank(message = "{required}")
     private String status;
 
     /**
@@ -94,6 +103,7 @@ public class SystemUser implements Serializable {
      * 性别 0男 1女 2 保密
      */
     @TableField("SSEX")
+    @NotBlank(message = "{required}")
     private String sex;
 
     /**
@@ -106,6 +116,7 @@ public class SystemUser implements Serializable {
      * 描述
      */
     @TableField("DESCRIPTION")
+    @Size(max = 100, message = "{noMoreThan}")
     private String description;
 
     /**
@@ -126,4 +137,5 @@ public class SystemUser implements Serializable {
 
     @TableField(exist = false)
     private String roleName;
+
 }

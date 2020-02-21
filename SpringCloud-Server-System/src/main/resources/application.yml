@@ -1,8 +1,31 @@
 spring:
   application:
     name: Server-System
-  autoconfigure:
-      exclude: com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration,org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+  datasource:
+      dynamic:
+        p6spy: true #p6spy用于在控制台中打印MyBatis执行的SQL
+        hikari:
+          connection-timeout: 30000
+          max-lifetime: 1800000
+          max-pool-size: 15
+          min-idle: 5
+          connection-test-query: select 1
+          pool-name: FebsHikariCP
+        primary: base
+        datasource:
+          base:
+            username: root
+            password: 123456
+            driver-class-name: com.mysql.cj.jdbc.Driver
+            url: jdbc:mysql://192.168.1.195:3306/kaleldo_cloud_base?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8
+
+mybatis-plus:
+  type-aliases-package: com.kaleldo.pojo.system
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    jdbc-type-for-null: null
+  global-config:
+    banner: false
 server:
   port: 8762
 
