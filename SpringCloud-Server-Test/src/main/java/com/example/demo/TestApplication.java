@@ -18,10 +18,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 //@EnableKaleldoOauth2FeignClient//开启带令牌的Feign请求，避免微服务内部调用出现401异常
 //@EnableKaleldoServerProtect//开启微服务防护，避免客户端绕过网关直接请求微服务
 @KaleldoCloudApplication
-@SpringBootApplication(exclude = {
-        DataSourceAutoConfiguration.class,
-        DataSourceTransactionManagerAutoConfiguration.class
-})
+@SpringBootApplication
 public class TestApplication {
 
     public static void main(String[] args) {

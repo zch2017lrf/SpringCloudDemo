@@ -7,6 +7,8 @@ spring:
       encoding: UTF-8
       servlet:
         content-type: text/html
+  autoconfigure:
+    exclude: com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration,org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
 
 server:
   port: 8764

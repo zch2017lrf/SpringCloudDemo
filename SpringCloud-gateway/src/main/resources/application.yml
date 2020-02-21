@@ -4,6 +4,8 @@ server:
 spring:
   application:
     name: Kaleldo-Gateway
+  autoconfigure:
+    exclude: com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration,org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
 
 eureka:
   instance:

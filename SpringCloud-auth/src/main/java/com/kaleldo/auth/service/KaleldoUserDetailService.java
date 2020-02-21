@@ -31,6 +31,7 @@ public class KaleldoUserDetailService implements UserDetailsService {
         if (systemUser != null) {
             String permissions = userManager.findUserPermissions(systemUser.getUsername());
             boolean notLocked = false;
+            //判断用户的Status是否为1 是否将用户锁定
             if (StringUtils.equals(SystemUser.STATUS_VALID, systemUser.getStatus()))
                 notLocked = true;
             KaleldoAuthUser authUser = new KaleldoAuthUser(systemUser.getUsername(), systemUser.getPassword(), true, true, true, notLocked,
