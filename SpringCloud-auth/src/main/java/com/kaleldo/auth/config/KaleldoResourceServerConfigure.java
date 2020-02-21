@@ -1,7 +1,9 @@
 package com.kaleldo.auth.config;
 
+import com.kaleldo.auth.properties.KaleldoAuthProperties;
 import com.kaleldo.handler.KaleldoAccessDeniedHandler;
 import com.kaleldo.handler.KaleldoAuthExceptionEntryPoint;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -20,13 +22,19 @@ public class KaleldoResourceServerConfigure extends ResourceServerConfigurerAdap
     private KaleldoAccessDeniedHandler accessDeniedHandler;
     @Autowired
     private KaleldoAuthExceptionEntryPoint exceptionEntryPoint;
+    @Autowired
+    private KaleldoAuthProperties properties;
     @Override
     public void configure(HttpSecurity http) throws Exception {
+        String[] anonUrls = StringUtils.splitByWholeSeparatorPreserveAllTokens(properties.getAnonUrl(), ",");
         http.csrf().disable()
                 .requestMatchers().antMatchers("/**")
                 .and()
                 .authorizeRequests()
-                .antMatchers("/**").authenticated();
+                //对验证码URL进行放行
+                .antMatchers(anonUrls).permitAll()
+                .antMatchers("/**").authenticated()
+                .and().httpBasic();
     }
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) {
