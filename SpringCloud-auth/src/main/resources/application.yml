@@ -4,6 +4,12 @@ server:
 spring:
   application:
     name: Kaleldo-Auth
+  boot:
+        admin:
+          client:
+            url: http://localhost:8401
+            username: kaleldo
+            password: 123456
   redis:
       database: 0
       host: 127.0.0.1
@@ -49,3 +55,17 @@ eureka:
     registry-fetch-interval-seconds: 3
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+info:
+  app:
+    name: ${spring.application.name}
+    description: "@project.description@"
+    version: "@project.version@"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS

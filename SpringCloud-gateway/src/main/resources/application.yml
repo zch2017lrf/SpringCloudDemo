@@ -6,7 +6,12 @@ spring:
     name: Kaleldo-Gateway
   autoconfigure:
     exclude: com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration,org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
-
+  boot:
+          admin:
+            client:
+              url: http://localhost:8401
+              username: kaleldo
+              password: 123456
 eureka:
   instance:
     lease-renewal-interval-in-seconds: 20
@@ -40,3 +45,18 @@ zuul:
 
 ribbon:
   ReadTimeout: 3000
+
+info:
+  app:
+    name: ${spring.application.name}
+    description: "@project.description@"
+    version: "@project.version@"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS

@@ -23,6 +23,7 @@ public class KaleldoServerTestResourceServerConfigure extends ResourceServerConf
                 .requestMatchers().antMatchers("/**")
                 .and()
                 .authorizeRequests()
+                .antMatchers("/actuator/**").permitAll()
                 .antMatchers("/**").authenticated();
     }
     @Override

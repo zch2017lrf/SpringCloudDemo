@@ -18,6 +18,26 @@ spring:
             password: 123456
             driver-class-name: com.mysql.cj.jdbc.Driver
             url: jdbc:mysql://192.168.1.195:3306/kaleldo_cloud_base?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8
+  boot:
+        admin:
+          client:
+            url: http://localhost:8401
+            username: kaleldo
+            password: 123456
+info:
+  app:
+    name: ${spring.application.name}
+    description: "@project.description@"
+    version: "@project.version@"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
 
 mybatis-plus:
   type-aliases-package: com.kaleldo.pojo.system

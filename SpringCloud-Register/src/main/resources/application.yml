@@ -1,6 +1,26 @@
 spring:
   application:
     name: hello-spring-cloud-eureka
+  boot:
+      admin:
+        client:
+          url: http://localhost:8401
+          username: kaleldo
+          password: 123456
+info:
+  app:
+    name: ${spring.application.name}
+    description: "@project.description@"
+    version: "@project.version@"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
 
 server:
   port: 8761

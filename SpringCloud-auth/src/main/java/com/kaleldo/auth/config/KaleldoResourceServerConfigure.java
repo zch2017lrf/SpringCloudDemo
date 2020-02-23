@@ -33,6 +33,7 @@ public class KaleldoResourceServerConfigure extends ResourceServerConfigurerAdap
                 .authorizeRequests()
                 //对验证码URL进行放行
                 .antMatchers(anonUrls).permitAll()
+                .antMatchers("/actuator/**").permitAll()
                 .antMatchers("/**").authenticated()
                 .and().httpBasic();
     }

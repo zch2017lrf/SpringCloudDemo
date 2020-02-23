@@ -33,6 +33,7 @@ public class KaleldoServerSystemResourceServerConfigure extends ResourceServerCo
                 .and()
                 .authorizeRequests()
                 .antMatchers(anonUrls).permitAll()
+                .antMatchers("/actuator/**").permitAll()
                 .antMatchers("/**").authenticated();
     }
     @Override
