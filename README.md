@@ -62,6 +62,7 @@ MySQL root用户密码为123456。
 
 ![在这里插入图片描述](https://user-gold-cdn.xitu.io/2020/3/11/170c87ea25661fd4?w=925&h=154&f=png&s=12945)
 > 请求头部 将kaleldo:123456  base64加密后，格式为Basic a2FsZWxkbzoxMjM0NTY=
+
 base地址:[base64](https://tool.oschina.net/encrypt?type=3)
 ![在这里插入图片描述](https://user-gold-cdn.xitu.io/2020/3/11/170c87ea46aec2f6?w=922&h=214&f=png&s=21700)
 填写用户名及密码，验证码
