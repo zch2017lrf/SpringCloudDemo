@@ -31,6 +31,7 @@ MySQL root用户密码为123456。
 ```
 
 ### 项目结构
+```
 ├─Kaleldo-Auth                       ------ 微服务认证服务器
 ├─hello-spring-cloud                      ------ 整个项目的父模块
 ├─SpringCloud-Common                     ------ 通用模块
@@ -39,6 +40,7 @@ MySQL root用户密码为123456。
 │  ├─SpringCloud-Monitor-Admin           ------ 微服务监控中心
 ├─Server-System           ------- 资源服务器系统模块
 └─Server-Test             ------ 资源服务器demo，演示如何整合自己的微服务系统
+```
 
 ### 导入sql文件
 
