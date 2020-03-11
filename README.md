@@ -42,38 +42,39 @@ MySQL root用户密码为123456。
 
 ### 导入sql文件
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200311143705650.png)
+![在这里插入图片描述](https://user-gold-cdn.xitu.io/2020/3/11/170c87ea196afdc2?w=326&h=164&f=png&s=6940)
 将common下的SQL文件导入数据库中
 
 ### 启动顺序
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200311144007312.png)
+![在这里插入图片描述](https://user-gold-cdn.xitu.io/2020/3/11/170c87ea1a2958ee?w=339&h=179&f=png&s=8990)
 
 > 1.RegisterApplication->2.SpringcloudMonitorAdminApplication->3.AuthApplication->4.SpringCloudGatewayApplication->5.SystemApplication->6.TestApplication
 
 ### 测试
 启动成功后效果图
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200311145218231.png)
+![在这里插入图片描述](https://user-gold-cdn.xitu.io/2020/3/11/170c87ea1b8105a3?w=438&h=168&f=png&s=13722)
 
  1. 取验证码
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200311145626512.png)
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200311145637204.png)
+![在这里插入图片描述](https://user-gold-cdn.xitu.io/2020/3/11/170c87ea1ca96c36?w=481&h=36&f=png&s=3428)
+![在这里插入图片描述](https://user-gold-cdn.xitu.io/2020/3/11/170c87ea22b380b7?w=218&h=107&f=png&s=4449)
 2.api请求令牌
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200311150002206.png)
+![在这里插入图片描述](https://user-gold-cdn.xitu.io/2020/3/11/170c87ea25661fd4?w=925&h=154&f=png&s=12945)
 > 请求头部 将kaleldo:123456  base64加密后，格式为Basic a2FsZWxkbzoxMjM0NTY=
 base地址:[base64](https://tool.oschina.net/encrypt?type=3)
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200311150425855.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY0NzIyNA==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://user-gold-cdn.xitu.io/2020/3/11/170c87ea46aec2f6?w=922&h=214&f=png&s=21700)
 填写用户名及密码，验证码
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200311150719885.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY0NzIyNA==,size_16,color_FFFFFF,t_70)
+![](https://user-gold-cdn.xitu.io/2020/3/11/170c88053bf0bfe7?w=883&h=563&f=png&s=69434)
 请求结果,拿到了token
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200311150512761.png)
+![在这里插入图片描述](https://user-gold-cdn.xitu.io/2020/3/11/170c87ea4d10dee7?w=534&h=125&f=png&s=8939)
 ### 测试访问api
 填写token
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200311150657774.png)
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200311151059571.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY0NzIyNA==,size_16,color_FFFFFF,t_70)
+
+![](https://user-gold-cdn.xitu.io/2020/3/11/170c880fd944e877?w=770&h=114&f=png&s=8759)
+![在这里插入图片描述](https://user-gold-cdn.xitu.io/2020/3/11/170c87ea53e085a6?w=918&h=785&f=png&s=89549)
 获取到了该用户信息
 ### 获取system提供的服务
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200311151242281.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY0NzIyNA==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://user-gold-cdn.xitu.io/2020/3/11/170c87ea5601c06b?w=952&h=438&f=png&s=48918)
 ### 服务状态监控
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200311151353335.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzY0NzIyNA==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](https://user-gold-cdn.xitu.io/2020/3/11/170c87ea790de2f1?w=958&h=927&f=png&s=90436)
